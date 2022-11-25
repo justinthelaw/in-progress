@@ -5,9 +5,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import responses.CheckResponse;
 
 @RestController
 public class CheckController {
@@ -17,13 +20,15 @@ public class CheckController {
   private final String INCORRECT_URL = "DOES NOT EXIST!";
 
   @GetMapping("/check")
-  public String checkURL(@RequestParam String url) {
+  @CrossOrigin(origins = "http://localhost:3000")
+  public CheckResponse checkURL(@RequestParam String url) {
     String returnMessage = "";
+    int responseCode = 404;
     try {
       URL urlObject = new URL(url);
       HttpURLConnection connection = (HttpURLConnection) urlObject.openConnection();
       connection.setRequestMethod("GET");
-      int responseCode = connection.getResponseCode();
+      responseCode = connection.getResponseCode();
       if (responseCode < 200 || responseCode >= 400) {
         returnMessage = SITE_DOWN;
       } else {
@@ -34,6 +39,6 @@ public class CheckController {
     } catch (IOException e) {
       returnMessage = SITE_DOWN;
     }
-    return returnMessage;
+    return new CheckResponse(responseCode, returnMessage);
   }
 }
