@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  postgres:
+    env_file:
+      - ./config/.env
+    build: ./db
+    user: ${POSTGRES_USER}
+    ports:
+      - "${PG_PORT}:5432"
+    volumes:
+      - ./db:/var/lib/db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # server:
+  #   build: ./server
+  #   volumes:
+  #     - ./server:/server
+  #   env_file:
+  #     - ./config/.env
+  #   environment:
+  #     NODE_ENV: development
+  #     DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${HOST_DB}:${PG_PORT}/${POSTGRES_DB}
+  #   ports:
+  #     - "${SERVER_PORT}:8080"
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+
+  client:
+    build: ./client
+    volumes:
+      - ./client:/client
+    env_file:
+      - ./config/.env
+    ports:
+      - "${CLIENT_PORT}:3000"

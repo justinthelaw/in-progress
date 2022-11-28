@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import io.justinthelaw.portfolio.controllers.CheckController;
-import responses.CheckResponse;
+import io.justinthelaw.portfolio.controllers.CheckResponse;
 
 @SpringBootTest
 class PortfolioApplicationTests {

@@ -1,4 +1,4 @@
-package responses;
+package io.justinthelaw.portfolio.controllers;
 
 public class CheckResponse {
   private int code;

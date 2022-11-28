@@ -42,13 +42,13 @@ class App extends React.Component<
   render() {
     return (
       <div className="App App-header">
-        <header>Justin Law</header>
+        <header>Justin Law's Portfolio</header>
         <form>
           <Input
             type="text"
             onChange={this.handleChange}
             value={this.state.value}
-          />
+            />
           <button onClick={this.handleSubmit}>Submit</button>
         </form>
         <p>

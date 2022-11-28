@@ -1,0 +1,8 @@
+*node_modules
+*LICENSE
+*.md
+*.gitignore
+*package-lock.json
+*cypress
+*bundle
+*github

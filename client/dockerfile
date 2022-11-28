@@ -1,0 +1,22 @@
+# pull latest official node image
+FROM node:latest
+
+# point to working directory in project
+WORKDIR /client
+
+# copy over package.json for npm
+COPY package.json /client
+
+# apply options
+RUN export NODE_OPTIONS=--openssl-legacy-provider
+USER root
+
+# install npm packages
+RUN npm install
+
+# copy all remaining source files
+COPY . /client
+
+# expose port and start client
+EXPOSE ${CLIENT_PORT}
+CMD npm start
