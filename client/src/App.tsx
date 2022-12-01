@@ -26,7 +26,7 @@ class App extends React.Component<
 
   async handleSubmit(e: React.FormEvent<HTMLButtonElement>) {
     e.preventDefault();
-    await fetch("http://localhost:8080/check?url=" + this.state.value, {
+    await fetch(`http://localhost:${process.env.REACT_APP_SERVER_PORT}/check?url=` + this.state.value, {
       method: "GET",
     })
       .then((res) => res.json())

@@ -53,23 +53,36 @@ Description
 
 ## Installation
 
+### Set-up Script
+
+- To automate the updating of all configuration files, a bash script named `setup.sh` has been provided.
+
+- Run `chmod +x scripts/[insert scropt name].sh` to give permission for a bash script to run.
+
+- The `setup.sh` script does the following:
+
+  - Moves a copy of the .env file to the client folder and appends "REACT_APP\_" to the front of all variables.
+  - Moves a copy of the .env file to the server folder
+
 ### Docker
 
 1. Go to the config folder and modify the .env.example file using the [format in this README](#Environment-Variables) and the format in the provided .env.example file. Delete the ".example" extension from the .env filename before running the application.
 
-2. Run `config/setup.sh` to copy over `.env` over to the React application directory and prepend `REACT_APP` to each environment variable.
+2. Start your Docker application
 
-3. Run `docker-compose --env-file ./config/.env up --build` and using your browser, proceed to the address and port for the client as specified in your .env file (e.g. http://localhost:3000).
+3. Run `scripts/setup.sh`
 
-4. To access the server, proceed to the address and port for the server as specified in your .env file (e.g. http://localhost:8080)
+4. Run `docker-compose --env-file ./config/.env up --build` and using your browser, proceed to the address and port for the client as specified in your .env file (e.g. http://localhost:3000).
+
+5. To access the server, proceed to the address and port for the server as specified in your .env file (e.g. http://localhost:8080)
 
 ### Source Code
 
 1. Modify the .env.example file using the format commented within the .env.example file. Delete the .example portion of the extension from the .env file before running the application.
 
-2. (OPTIONAL) Run `config/start.sh` to execute the steps after this one automatically in 1 terminal.
+2. Start your Docker application
 
-3. Run `config/setup.sh` to copy over `.env` over to the React application directory and prepend `REACT_APP` to each environment variable.
+3. Run `scripts/setup.sh`
 
 4. Start your Docker app and run the following command to spin-up PostgreSQL and the required database: `docker run --rm --name justinthelaw -v $PWD/db:/docker-entrypoint-initdb.d/ --env-file ./config/.env -p $(awk -F "=" '/PG_PORT/{print $NF}' ./config/.env):5432 postgres:latest`
 
@@ -77,9 +90,9 @@ Description
 
 6. Go to the client and execute `npm start` to start the React application.
 
-7. Go to the server and press "run" or a similar option to have your IDE compile and run the Spring Boot build.
+7. Go to the server Spring Boot Java project and run your IDE's compile and run function.
 
-8. (OPTIONAL) Alternatively, you can build the `.jar` file using your IDE or the CLI and run the result Spring Boot build.
+8. (OPTIONAL) Alternatively, you can build the `.jar` file using your IDE or the CLI and run the resulting Spring Boot build.
 
 9. Proceed to the address and port for the client as specified in your .env file (e.g. http://localhost:3000)
 

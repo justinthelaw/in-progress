@@ -23,6 +23,9 @@ public class CheckController {
     String returnMessage = "";
     int responseCode = 404;
     try {
+      if (!url.contains("https://") && !url.isEmpty()) {
+        url = "https://" + url;
+      }
       URL urlObject = new URL(url);
       HttpURLConnection connection = (HttpURLConnection) urlObject.openConnection();
       connection.setRequestMethod("GET");

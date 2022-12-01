@@ -1,4 +1,11 @@
-FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM maven:latest
+
+# point to container working directory
+WORKDIR /server
+
+# copy all Spring Boot files
+COPY . /server
+
+# expose port and start server
+EXPOSE ${SERVER_PORT}
+ENTRYPOINT ["mvn","spring-boot:run"]
