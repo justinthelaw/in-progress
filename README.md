@@ -1,6 +1,4 @@
-# Justin Law's Portfolio
-
-<img src="./client/assets/me.jpg" alt="me.jpg" width="40%"/>
+# In-Progress Personal Project
 
 ## Table of Contents
 
@@ -13,7 +11,7 @@
 
 ## Overview
 
-This web application was built and designed as a proof-of-concept for an interactive portfolio showing off Justin Law's coding projects.
+In-Progress.
 
 - Database: built in PostgreSQL, SQL
 - Client: built in React, TypeScript
@@ -23,7 +21,7 @@ This web application was built and designed as a proof-of-concept for an interac
 
 ## Description
 
-The main purpose of this web application was to learn how to merge different programming languages and their associated technologies into a coherent portfolio that can ingest and display Justin Law's favorite personal and course-based coding projects. Programming languages for each project range from C to JavaScript, and the operating locations range from web-based interfaces to command-line interface applications.
+In-Progress.
 
 ### Client Design
 
@@ -109,16 +107,16 @@ application code via `process.env.<variable-name>`. For example, the
 port for the client is accessed in the code by referencing
 `process.env.PORT`.
 
-| Environment Variable | Description                              | Example Setting            | Applicability    |
-| :------------------- | :--------------------------------------- | :------------------------- | :--------------- |
-| CHOKIDAR_USEPOLLING  | Allows hot reloads of React App          | true                       | client           |
-| HOST_DB              | Docker host for database                 | postgres                   | server           |
-| HOST_DEV             | Local and/or container host for server   | localhost                  | server, client   |
-| HOST_LIVE            | Deployed host for server                 | justinthelaw.herokuapp.com | server, client   |
-| PROTO_DEV            | Local and/or container protocol          | http                       | server, client   |
-| PROTO_LIVE           | Deployed protocol                        | https                      | server, client   |
-| API_PORT             | Local and/or container port API server   | 8080                       | server, client   |
-| POSTGRES_DB          | Database name                            | justinthelaw               | server, database |
-| POSTGRES_USER        | PostgreSQL username                      | postgres                   | server, database |
-| POSTGRES_PASSWORD    | PostgreSQL password                      | docker                     | server, database |
-| PG_PORT              | Local and/or container port for database | 5432                       | server, database |
+| Environment Variable | Description                              | Example Setting  | Applicability    |
+| :------------------- | :--------------------------------------- | :--------------- | :--------------- |
+| CHOKIDAR_USEPOLLING  | Allows hot reloads of React App          | true             | client           |
+| HOST_DB              | Docker host for database                 | postgres         | server           |
+| HOST_DEV             | Local and/or container host for server   | localhost        | server, client   |
+| HOST_LIVE            | Deployed host for server                 | justinthelaw.com | server, client   |
+| PROTO_DEV            | Local and/or container protocol          | http             | server, client   |
+| PROTO_LIVE           | Deployed protocol                        | https            | server, client   |
+| API_PORT             | Local and/or container port API server   | 8080             | server, client   |
+| POSTGRES_DB          | Database name                            | mydatabase       | server, database |
+| POSTGRES_USER        | PostgreSQL username                      | postgres         | server, database |
+| POSTGRES_PASSWORD    | PostgreSQL password                      | docker           | server, database |
+| PG_PORT              | Local and/or container port for database | 5432             | server, database |
